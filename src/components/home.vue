@@ -19,9 +19,9 @@
                 <el-badge style="margin-left: 10px" :value="200" :max="99" class="item">
                     <el-button circle icon="el-icon-message-solid"></el-button>
                 </el-badge>
-                <el-button style="margin-left: 10px" circle icon="el-icon-shopping-cart-2"></el-button>
+                <el-button style="margin-left: 10px" circle icon="el-icon-shopping-cart-2" @click="toMyCart"></el-button>
                 <el-dropdown style="margin-left: 20px">
-                   <span class="el-dropdown-link">
+                   <span class="el-dropdown-link"  @click="toUserSettings">
                       {{this.phone}}<i class="el-icon-arrow-down el-icon--right"></i>
                    </span>
                     <template #dropdown>
@@ -209,9 +209,15 @@
             }
         },
         methods: {
+            toMyCart(){
+                this.$router.push('/myCart')
+            },
             logout() {
                 window.sessionStorage.clear()
                 this.$router.push('/login')
+            },
+            toUserSettings(){
+                this.$router.push('/userSettings')
             }
         }
     }
